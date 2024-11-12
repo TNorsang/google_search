@@ -13,6 +13,7 @@ interface SearchResponse {
     results: SearchResult[];
   };
 }
+
 export default function Home() {
   const googoo = ["G", "O", "O", "G", "L", "E"];
   const googooColor = [
@@ -53,7 +54,13 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center h-screen p-4 space-y-8">
+    <div
+      className={`flex flex-col items-center p-4 ${
+        results?.web?.results?.length
+          ? "justify-start mt-8"
+          : "justify-center h-screen"
+      } space-y-8`}
+    >
       {/* Google logo that resets search */}
       <div className="cursor-pointer flex" onClick={handleReset}>
         {googoo.map((letter, index) => (
@@ -91,18 +98,20 @@ export default function Home() {
       {error && <p className="text-red-500">{error}</p>}
 
       {/* Search Results */}
-      <div className="w-full max-w-3xl mt-4">
-        {results?.web?.results?.map((result, index) => (
-          <div key={index} className="mb-6 p-4 border-b border-gray-200">
-            <h3 className="text-lg font-semibold text-blue-500 hover:underline">
-              <a href={result.url} target="_blank" rel="noopener noreferrer">
-                {result.title}
-              </a>
-            </h3>
-            <p className="text-gray-600 mt-1">{result.snippet}</p>
-          </div>
-        ))}
-      </div>
+      {results?.web?.results?.length > 0 && (
+        <div className="w-full max-w-3xl mt-4">
+          {results.web.results.map((result, index) => (
+            <div key={index} className="mb-6 p-4 border-b border-gray-200">
+              <h3 className="text-lg font-semibold text-blue-500 hover:underline">
+                <a href={result.url} target="_blank" rel="noopener noreferrer">
+                  {result.title}
+                </a>
+              </h3>
+              <p className="text-gray-600 mt-1">{result.snippet}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
