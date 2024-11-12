@@ -6,7 +6,7 @@ export default function Home() {
         <input
           type="text"
           placeholder="Search"
-          className="rounded-full border border-gray-300 w-96 px-4 py-2"
+          className="rounded-full border border-gray-300 w-96 px-4 py-2 text-black"
         />
       </div>
     </div>
