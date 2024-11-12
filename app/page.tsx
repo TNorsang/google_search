@@ -46,11 +46,11 @@ export default function Home() {
     }
   };
 
+
+ 
   return (
     <div className="flex flex-col justify-center space-y-8 items-center h-screen">
-      <h1 className="text-black text-8xl">Googoo</h1>
-      <form onSubmit={handleSearch}>
-      <div className="flex flex-row">
+        <div className="flex flex-row">
         {googoo.map((letter, index) => (
           <p
             key={index}
@@ -61,6 +61,7 @@ export default function Home() {
           </p>
         ))}
       </div>
+      <form onSubmit={handleSearch}>
       <div>
         <input
           type="text"
@@ -72,6 +73,7 @@ export default function Home() {
         <button type="submit" disabled={loading}>
           {loading ? "Searching..." : "Search"}
         </button>
+        </div>
       </form>
       {error && <p>{error}</p>}
       <div>
