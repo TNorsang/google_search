@@ -52,8 +52,8 @@ export default function Home() {
         {googoo.map((letter, index) => (
           <p
             key={index}
-            className="text-7xl p-2" // Keep common styles here
-            style={{ color: googooColor[index] }} // Apply dynamic background color
+            className="text-7xl font-bold"
+            style={{ color: googooColor[index] }}
           >
             {letter}
           </p>
