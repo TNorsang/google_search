@@ -1,7 +1,27 @@
 export default function Home() {
+  let googoo = ["G", "O", "O", "G", "O", "O"];
+  let googooColor = [
+    "#4086f4", 
+    "#eb4132", 
+    "#fbbd01", 
+    "#4086f4", 
+    "#31aa52", 
+    "#fbbd01", 
+  ];
+
   return (
     <div className="flex flex-col justify-center space-y-8 items-center h-screen">
-      <h1 className="text-black text-8xl">Googoo</h1>
+      <div className="flex flex-row">
+        {googoo.map((letter, index) => (
+          <p
+            key={index}
+            className="text-7xl p-2" // Keep common styles here
+            style={{ color: googooColor[index] }} // Apply dynamic background color
+          >
+            {letter}
+          </p>
+        ))}
+      </div>
       <div>
         <input
           type="text"

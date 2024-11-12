@@ -19,6 +19,7 @@ function SearchPage() {
     try {
       const response = await axios.get(`/api/search?query=${query}`);
       setResults(response.data); // Set the results in state
+      console.log(response.data);
     } catch (err) {
       setError("Failed to fetch search results");
     } finally {
